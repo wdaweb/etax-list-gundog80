@@ -5,7 +5,7 @@ if(!empty($_GET)&&$_GET['a']=999){
 	session_destroy();
 }
 $dns="mysql:host=localhost;charset=utf8;dbname=invoice";
-$db=new PDO($dns,'root','1234');
+$db=new PDO($dns,'root','');
 
 $_SESSION['0']=$_POST['發票號碼a'];
 $_SESSION['1']=$_POST['發票號碼b'];
@@ -68,7 +68,7 @@ for($i=0;$i<sizeof($target);$i++){
 		echo "<br>";
 		echo "<a href='標籤登錄.php?name=$targetName'>是，請登錄新標籤</a>";
 		echo "&ensp; &ensp; &ensp;";
-		echo "<a href='發票登錄a.php?a=1'>否，讓我重填</a>";
+		echo "<a href='發票登錄a.php?a=1&b=$發票號碼'>否，讓我重填</a>";
 		exit;
 	}else{
 	}

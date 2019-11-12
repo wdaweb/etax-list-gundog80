@@ -16,9 +16,10 @@
 </head>
 <body>
 	<?php
-	if(empty($_GET)||$_GET['a']=2){
+	if(empty($_GET) || $_GET['a']==2){
 		if($_GET['a']=2){
-			$temp=$_GET['b'];
+            $temp=$_GET['b'];
+            echo "未完成登錄不該跑這行";
 			echo "已登錄發票 $temp";
 		}
         $發票號碼a="";
