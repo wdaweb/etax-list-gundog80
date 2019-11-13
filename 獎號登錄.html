@@ -14,14 +14,11 @@
     </style>
 </head>
 <body>
-	
     
     <div name="發票登錄">
         獎號登錄
         <form action="獎號登錄.php" method="post">
-            第
-            <input name=期數 type="text" value="">
-            統一發票開獎號碼：
+            第  <span id="No.">xxx</span>  統一發票開獎號碼：
             <br>
             特別獎：
             <input type="text" value="<?php $特別獎 ?> "  name="特別獎" id="">
@@ -32,34 +29,34 @@
             頭獎：
             <br>
             <input type="text" value="<?php $頭獎[0] ?> "  name="頭獎1" id="">
-            <input type="text" value="<?php $頭獎[0] ?> "  name="頭獎2" id="">
-            <input type="text" value="<?php $頭獎[0] ?> "  name="頭獎3" id="">
+            <input type="text" value="<?php $頭獎[1] ?> "  name="頭獎2" id="">
+            <input type="text" value="<?php $頭獎[2] ?> "  name="頭獎3" id="">
             <br>
             增開六獎:
             <br>
-            <input type="button" value="添加增開六獎獎號" onclick="">
+            <input type="text" value="<?php $增開六獎[0]?>" name="增開六獎1">
+            <input id="addNumber" type="button" value="添加增開六獎獎號">
             <br>
-            <?php
-            
-            if(1){
-
-            }
             <input type="submit" value="登錄獎號">
             <input type="reset" value="清除資料">
-            
-            ?>
+        <?php
+        if(true){
+            echo "<input type='reset' value='修正資料'>";
+        }
+        ?>
         </form>
     </div>
 	
 	
 	
     <script>
-    /*
-        取得時間
-        頁面載入完成後，更新發票的期數為當下月份所在期數
-    */
-			// <!-- 需以選單處理，可選期數為當下日期往前7期，並預設為當下期數 -->
-			// <!-- 增加表單於右側，可選擇所有已存在標籤，並用js監控，變動時即在valu值尾端新增 -->
+// 增開六獎添加功能
+let addNumber=()=>{
+
+}
+
+// 解鎖欄位鎖定
+
     </script>
 </body>
 </html>
