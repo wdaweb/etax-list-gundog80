@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+    <!-- 狀態-需求:
+    1．由首頁進入 無get
+    2．由後台登錄完成後返回 get a=2 ，需顯示完成登錄之發票號碼，及前次期數保留
+    3．由後台登錄失敗(有重覆登錄或tag要重設) get a=1 ，需保留所有前次輸入內容 -->
+
+<?php include_once "invoiceBasic.php" ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -10,30 +15,34 @@
     .發票登錄{
         margin: 0 auto;
         width:60em;
-
+    }
+    .發票號碼a{
+        width:2em;
+    }
+    .發票號碼b{
+        width:6em;
     }
     </style>
 </head>
 <body>
+
 	<?php
 	if(empty($_GET) || $_GET['a']==2){
-		if(!empty($_GET) && $_GET['a']==2){
-            $temp=$_GET['b'];
-            echo "未完成登錄不該跑這行";
-			echo "已登錄發票 $temp";
-		}
         $發票號碼a="";
         $發票號碼b="";
         $期數="";
         $消費日期="";
-        $消費日期="";
-        $消費日期="";
-        $消費日期="";
+        $消費金額="";
+        $標籤設定="";
+        $其它="";
+        if(!empty($_GET) && $_GET['a']==2){
+            $temp=$_SESSION['發票號碼a'].$_SESSION['發票號碼b'];
+            echo "已登錄發票 $temp";
+            $期數=$_SESSION['期數'];
+        }
     }else{
-		// echo "session傳不回來，不明錯誤，待研究";
-        print_r($_SESSION);
+	    print_r($_SESSION);
         echo $_SESSION['發票號碼a'];
-
         $發票號碼a=$_SESSION['發票號碼a'];
         $發票號碼b=$_SESSION['發票號碼b'];
         $期數=$_SESSION['期數'];
@@ -45,11 +54,14 @@
     ?>
     
     <div name="發票登錄">
-        發票登錄
+        <h3>
+            發票登錄
+        </h3>
         <form action="發票登錄b.php" method="post">
             發票號碼：
-            <input type="text" value="<?php echo $發票號碼a; ?> "  name="發票號碼a" id="">
-            <input type="text" value="<?php echo $發票號碼b; ?>" name="發票號碼b" id="">
+            <input class="發票號碼a" type="text" value="<?php echo $發票號碼a; ?> "  name="發票號碼a" id="">
+            -
+            <input class="發票號碼b" type="text" value="<?php echo $發票號碼b; ?>" name="發票號碼b" id="">
             <br>
             <!-- 需以選單處理，可選期數為當下日期往前7期，並預設為當下期數 -->
             期數：<input type="search" value="<?php echo $期數;?>" name="期數" id="">
@@ -71,10 +83,7 @@
 	
 	
     <script>
-    /*
-        取得時間
-        頁面載入完成後，更新發票的期數為當下月份所在期數
-    */
+
 			// <!-- 需以選單處理，可選期數為當下日期往前7期，並預設為當下期數 -->
 			// <!-- 增加表單於右側，可選擇所有已存在標籤，並用js監控，變動時即在valu值尾端新增 -->
     </script>

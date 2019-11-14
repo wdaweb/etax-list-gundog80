@@ -35,4 +35,7 @@ Function getPeriod(){
 	$Lperiod=(date("m")+1)/2;
 	return $Fperiod . "0" . $Lperiod; 
 }
+Function nextPeriod($period){
+	
+}
 ?>
