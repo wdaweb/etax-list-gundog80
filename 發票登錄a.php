@@ -14,13 +14,18 @@
     <style>
     .發票登錄{
         margin: 0 auto;
-        width:60em;
+        width:12em;
     }
     .發票號碼a{
         width:2em;
     }
     .發票號碼b{
         width:6em;
+    }
+    .other{
+        height:3em;
+        width:15em;
+        text-align:left ;
     }
     </style>
 </head>
@@ -30,7 +35,7 @@
 	if(empty($_GET) || $_GET['a']==2){
         $發票號碼a="";
         $發票號碼b="";
-        $期數="";
+        $期數=getNowPeriod();
         $消費日期="";
         $消費金額="";
         $標籤設定="";
@@ -73,7 +78,13 @@
 			<!-- 增加表單於右側，可選擇所有已存在標籤，並用js監控，變動時即在valu值尾端新增 -->
             標籤設定：<input type="text" value="<?php echo $標籤設定; ?>" placeholder="#標籤1#標籤2" name="標籤設定">
             <br>
-            其它：<input type="text" value="<?php echo $其它 ;?>" name="其它" id="" height="30 px" >
+            其它：
+            <br>
+            <textarea class="other"  name="其它" id=""  >
+            <?php 
+                echo $其它 ;
+            ?>
+            </textarea>
             <br>
             <input type="submit" value="登錄發票">
             <input type="reset" value="清除資料">

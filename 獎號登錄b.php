@@ -35,7 +35,7 @@ if($action="write"){
     }
     // 自動對獎-1 取出某期別裡 發票資料表 中 發票號碼 與 開獎資料表 中 開獎號碼末3碼 有相等的所有資料
     $sql="SELECT `記帳表`.`ID` AS 'V_ID' ,`記帳表`.`V_number` ,`lotteryaward`.`ID` AS 'awardID' ,`lotteryaward`.`number` AS 'awardNumber',`lotteryaward`.`prize` FROM `記帳表` INNER JOIN `lotteryaward` WHERE `記帳表`.`periods`=`lotteryaward`.`perviod` AND `記帳表`.`V_number` like CONCAT('%',SUBSTRING(`lotteryaward`.`number`
-	,LENGTH(`lotteryaward`.`number`),3)) AND `記帳表`.`periods`=$期別";
+	,LENGTH(`lotteryaward`.`number`),3)) AND `記帳表`.`period`=$期別";
 	// echo "<br>";
 	// echo $sql;
 	// echo "<br>";
