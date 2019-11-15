@@ -5,7 +5,7 @@ Function createOneV_number () {
 	global $dns;
 	global $db;
 	$V_numberA=['AA','BB','CC','DD','EE'];
-	$target=["我是標籤1","我是標籤2","","",""];
+	$target=["#d","#a#b","#a#c","#a#b#d",""];
 	$temp=random_int(0,4);
 	$發票號碼a=$V_numberA[$temp];
 	$temp=random_int(00000001,99999999);

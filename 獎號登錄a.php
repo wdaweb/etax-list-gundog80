@@ -63,7 +63,23 @@ if($_GET['regist']==1){
             增開六獎:
 			<br>
 			<div>
-				<input  id="addNumBtn" type="button" value="添加增開六獎獎號" <?php echo $disabled; ?> onclick="addNumber()" >
+                <?php
+                $j=1;
+                for($i=1;$i<=5;$i++){
+                    $temp="增開六獎" . $i;
+                    if($_SESSION[$temp]==""){
+                    }else{
+                        echo "<input type='text' value='" .$_SESSION[$temp] . "' name='增開六獎" . $j . "'> <br>";
+                        $j++;
+                    }
+                }
+
+                
+                ?>
+                
+                
+                
+                <input  id="addNumBtn" type="button" value="添加增開六獎獎號" <?php echo $disabled; ?> onclick="addNumber()" >
 
             </div>
             <input type="hidden" name="period" value="<?php echo $期別; ?>" <?php echo $disabled; ?>>
