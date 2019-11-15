@@ -1,7 +1,7 @@
 <?php
 session_start();
 $dns="mysql:host=localhost;charset=utf8;dbname=invoice";
-$db=new PDO($dns,'root','');
+$db=new PDO($dns,'root','1234');
 
 Function check($vaule,$table,$cell){
 	global $db;
@@ -41,6 +41,18 @@ Function getNowPeriod(){
 	return $Fperiod . "0" . $Lperiod; 
 }
 Function nextPeriod($period){
-	
+	$temp=$period+1;
+	if($temp%10==7){
+		$temp=$temp+94;
+	}
+	return $temp;
 }
+Function prePeriod($period){
+	$temp=$period-1;
+	if($temp%10==0){
+		$temp=$temp-94;
+	}
+	return $temp;
+}
+
 ?>

@@ -76,7 +76,11 @@ for($i=1;$i<=sizeof($target);$i++){
 	}else{
 	}
 }
-		$sql="INSERT INTO `記帳表` () VALUES ('','$發票號碼','$期數','$消費金額','$消費日期','$標籤設定','$其它')";
+		$sql="INSERT INTO `記帳表` () VALUES ('','$發票號碼','$期數','$消費日期','$消費金額','$標籤設定','$其它')";
+		// echo $sql;
+		// exit;
+
+
 		$insert=$db->exec($sql);
 		if($insert){
 			header("location:發票登錄a.php?a=2&b=$發票號碼");
